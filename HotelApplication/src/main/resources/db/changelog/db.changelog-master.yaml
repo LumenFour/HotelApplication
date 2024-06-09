@@ -22,11 +22,35 @@ databaseChangeLog:
                   name: description
                   type: TEXT
               - column:
-                  name: address
+                  name: brand
                   type: VARCHAR(255)
+              - column:
+                  name: house_number
+                  type: INT
+              - column:
+                  name: street
+                  type: VARCHAR(255)
+              - column:
+                  name: city
+                  type: VARCHAR(255)
+              - column:
+                  name: county
+                  type: VARCHAR(255)
+              - column:
+                  name: post_code
+                  type: VARCHAR(10)
               - column:
                   name: phone
                   type: VARCHAR(50)
+              - column:
+                  name: email
+                  type: VARCHAR(255)
+              - column:
+                  name: check_in
+                  type: VARCHAR(5)
+              - column:
+                  name: check_out
+                  type: VARCHAR(5)
   - changeSet:
       id: 2
       author: yourname
@@ -41,8 +65,149 @@ databaseChangeLog:
                   name: description
                   value: "The DoubleTree by Hilton Hotel Minsk offers 193 luxurious rooms in the Belorussian capital and stunning views of Minsk city from the hotel's 20th floor ..."
               - column:
-                  name: address
-                  value: "9 Pobediteley Avenue, Minsk, 220004, Belarus"
+                  name: brand
+                  value: "Hilton"
+              - column:
+                  name: house_number
+                  value: 9
+              - column:
+                  name: street
+                  value: "Pobediteley Avenue"
+              - column:
+                  name: city
+                  value: "Minsk"
+              - column:
+                  name: county
+                  value: "Belarus"
+              - column:
+                  name: post_code
+                  value: "220004"
               - column:
                   name: phone
                   value: "+375 17 309-80-00"
+              - column:
+                  name: email
+                  value: "doubletreeminsk.info@hilton.com"
+              - column:
+                  name: check_in
+                  value: "14:00"
+              - column:
+                  name: check_out
+                  value: "12:00"
+  - changeSet:
+      id: 3
+      author: yourname
+      changes:
+        - createTable:
+            tableName: hotel_amenities
+            columns:
+              - column:
+                  name: id
+                  type: BIGINT
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: hotel_id
+                  type: BIGINT
+              - column:
+                  name: amenity
+                  type: VARCHAR(255)
+              - constraints:
+                  uniqueConstraint:
+                    columnNames: hotel_id, amenity
+  - changeSet:
+      id: 4
+      author: yourname
+      changes:
+        - insert:
+            tableName: hotel_amenities
+            columns:
+              - column:
+                  name: hotel_id
+                  value: 1
+              - column:
+                  name: amenity
+                  value: "Free parking"
+        - insert:
+            tableName: hotel_amenities
+            columns:
+              - column:
+                  name: hotel_id
+                  value: 1
+              - column:
+                  name: amenity
+                  value: "Free WiFi"
+        - insert:
+            tableName: hotel_amenities
+            columns:
+              - column:
+                  name: hotel_id
+                  value: 1
+              - column:
+                  name: amenity
+                  value: "Non-smoking rooms"
+        - insert:
+            tableName: hotel_amenities
+            columns:
+              - column:
+                  name: hotel_id
+                  value: 1
+              - column:
+                  name: amenity
+                  value: "Concierge"
+        - insert:
+            tableName: hotel_amenities
+            columns:
+              - column:
+                  name: hotel_id
+                  value: 1
+              - column:
+                  name: amenity
+                  value: "On-site restaurant"
+        - insert:
+            tableName: hotel_amenities
+            columns:
+              - column:
+                  name: hotel_id
+                  value: 1
+              - column:
+                  name: amenity
+                  value: "Fitness center"
+        - insert:
+            tableName: hotel_amenities
+            columns:
+              - column:
+                  name: hotel_id
+                  value: 1
+              - column:
+                  name: amenity
+                  value: "Pet-friendly rooms"
+        - insert:
+            tableName: hotel_amenities
+            columns:
+              - column:
+                  name: hotel_id
+                  value: 1
+              - column:
+                  name: amenity
+                  value: "Room service"
+        - insert:
+            tableName: hotel_amenities
+            columns:
+              - column:
+                  name: hotel_id
+                  value: 1
+              - column:
+                  name: amenity
+                  value: "Business center"
+        - insert:
+            tableName: hotel_amenities
+            columns:
+              - column:
+                  name: hotel_id
+                  value: 1
+              - column:
+                  name: amenity
+                  value: "Meeting rooms"
