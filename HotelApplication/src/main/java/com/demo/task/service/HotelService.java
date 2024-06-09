@@ -1,6 +1,8 @@
 package com.demo.task.service;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
@@ -58,6 +60,33 @@ public class HotelService {
 			hotelRepository.save(hotel);
 		}
 		return hotelOptional;
+	}
+
+	public Map<String, Long> getHistogram(String param) {
+		List<Object[]> results;
+		switch (param) {
+		case "brand":
+			results = hotelRepository.countHotelsByBrand();
+			break;
+		case "city":
+			results = hotelRepository.countHotelsByCity();
+			break;
+		case "county":
+			results = hotelRepository.countHotelsByCounty();
+			break;
+		case "amenities":
+			results = hotelRepository.countHotelsByAmenities();
+			break;
+		default:
+			throw new IllegalArgumentException("Invalid histogram parameter");
+		}
+
+		Map<String, Long> histogram = new HashMap<>();
+		for (Object[] result : results) {
+			histogram.put(result[0].toString(), (Long) result[1]);
+		}
+
+		return histogram;
 	}
 
 }
