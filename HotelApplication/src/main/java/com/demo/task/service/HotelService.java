@@ -7,6 +7,7 @@ import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.demo.task.dto.HotelDTO;
 import com.demo.task.entity.Hotel;
 import com.demo.task.repository.HotelRepository;
 
@@ -34,5 +35,18 @@ public class HotelService {
 				.filter(hotel -> StringUtils.isEmpty(county) || hotel.getAddress().getCounty().equalsIgnoreCase(county))
 				.filter(hotel -> StringUtils.isEmpty(amenities) || hotel.getAmenities().contains(amenities))
 				.collect(Collectors.toList());
+	}
+
+	public Hotel createHotel(HotelDTO hotelDTO) {
+		Hotel hotel = new Hotel();
+		hotel.setName(hotelDTO.getName());
+		hotel.setDescription(hotelDTO.getDescription());
+		hotel.setBrand(hotelDTO.getBrand());
+		hotel.setAddress(hotelDTO.getAddress());
+		hotel.setContacts(hotelDTO.getContacts());
+		hotel.setArrivalTime(hotelDTO.getArrivalTime());
+		hotel.setAmenities(hotelDTO.getAmenities());
+
+		return hotelRepository.save(hotel);
 	}
 }

@@ -6,10 +6,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.demo.task.dto.HotelDTO;
 import com.demo.task.entity.Hotel;
 import com.demo.task.service.HotelService;
 
@@ -35,5 +38,11 @@ public class HotelController {
 			@RequestParam(required = false) String brand, @RequestParam(required = false) String city,
 			@RequestParam(required = false) String county, @RequestParam(required = false) String amenities) {
 		return hotelService.searchHotels(name, brand, city, county, amenities);
+	}
+
+	@PostMapping
+	public ResponseEntity<Hotel> createHotel(@RequestBody HotelDTO hotelDTO) {
+		Hotel createdHotel = hotelService.createHotel(hotelDTO);
+		return ResponseEntity.ok(createdHotel);
 	}
 }
