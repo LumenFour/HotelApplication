@@ -1,0 +1,48 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1
+      author: yourname
+      changes:
+        - createTable:
+            tableName: hotel
+            columns:
+              - column:
+                  name: id
+                  type: BIGINT
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: name
+                  type: VARCHAR(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: description
+                  type: TEXT
+              - column:
+                  name: address
+                  type: VARCHAR(255)
+              - column:
+                  name: phone
+                  type: VARCHAR(50)
+  - changeSet:
+      id: 2
+      author: yourname
+      changes:
+        - insert:
+            tableName: hotel
+            columns:
+              - column:
+                  name: name
+                  value: "DoubleTree by Hilton Minsk"
+              - column:
+                  name: description
+                  value: "The DoubleTree by Hilton Hotel Minsk offers 193 luxurious rooms in the Belorussian capital and stunning views of Minsk city from the hotel's 20th floor ..."
+              - column:
+                  name: address
+                  value: "9 Pobediteley Avenue, Minsk, 220004, Belarus"
+              - column:
+                  name: phone
+                  value: "+375 17 309-80-00"
