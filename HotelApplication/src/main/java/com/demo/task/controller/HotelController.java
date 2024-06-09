@@ -17,19 +17,20 @@ import com.demo.task.dto.HotelDTO;
 import com.demo.task.entity.Hotel;
 import com.demo.task.service.HotelService;
 
+
 @RestController
-@RequestMapping("/hotels")
+@RequestMapping("/property-view")
 public class HotelController {
 
 	@Autowired
 	private HotelService hotelService;
 
-	@GetMapping
+	@GetMapping("/hotels")
 	public List<Hotel> getAllHotels() {
 		return hotelService.getAllHotels();
 	}
 
-	@GetMapping("/{id}")
+	@GetMapping("hotels/{id}")
 	public ResponseEntity<Hotel> getHotelById(@PathVariable Long id) {
 		return hotelService.getHotelById(id).map(ResponseEntity::ok).orElse(ResponseEntity.notFound().build());
 	}
@@ -41,13 +42,13 @@ public class HotelController {
 		return hotelService.searchHotels(name, brand, city, county, amenities);
 	}
 
-	@PostMapping
+	@PostMapping("/hotels")
 	public ResponseEntity<Hotel> createHotel(@RequestBody HotelDTO hotelDTO) {
 		Hotel createdHotel = hotelService.createHotel(hotelDTO);
 		return ResponseEntity.ok(createdHotel);
 	}
 
-	@PostMapping("/{id}/amenities")
+	@PostMapping("hotels/{id}/amenities")
 	public ResponseEntity<Hotel> addAmenitiesToHotel(@PathVariable Long id, @RequestBody List<String> amenities) {
 		return hotelService.addAmenitiesToHotel(id, amenities).map(ResponseEntity::ok)
 				.orElse(ResponseEntity.notFound().build());
