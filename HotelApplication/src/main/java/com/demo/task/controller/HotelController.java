@@ -45,4 +45,10 @@ public class HotelController {
 		Hotel createdHotel = hotelService.createHotel(hotelDTO);
 		return ResponseEntity.ok(createdHotel);
 	}
+
+	@PostMapping("/{id}/amenities")
+	public ResponseEntity<Hotel> addAmenitiesToHotel(@PathVariable Long id, @RequestBody List<String> amenities) {
+		return hotelService.addAmenitiesToHotel(id, amenities).map(ResponseEntity::ok)
+				.orElse(ResponseEntity.notFound().build());
+	}
 }

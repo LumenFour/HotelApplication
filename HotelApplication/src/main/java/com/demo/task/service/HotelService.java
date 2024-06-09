@@ -49,4 +49,15 @@ public class HotelService {
 
 		return hotelRepository.save(hotel);
 	}
+
+	public Optional<Hotel> addAmenitiesToHotel(Long id, List<String> amenities) {
+		Optional<Hotel> hotelOptional = hotelRepository.findById(id);
+		if (hotelOptional.isPresent()) {
+			Hotel hotel = hotelOptional.get();
+			hotel.getAmenities().addAll(amenities);
+			hotelRepository.save(hotel);
+		}
+		return hotelOptional;
+	}
+
 }
