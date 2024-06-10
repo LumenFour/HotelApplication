@@ -28,10 +28,6 @@ Adds a list of amenities to the hotel.
 
 Retrieves the number of hotels grouped by each value of the specified parameter. Parameter: brand, city, county, amenities.
 
-## Launching the Application
-
-The application is launched from the console using the command:
-
 
 ### Technologies Used
 * Maven
@@ -47,6 +43,11 @@ The application is launched from the console using the command:
 * Use of design patterns
 * Layer separation
 * Ability to “quickly” switch from H2 to another database (MySQL, PostgreSQL, Mongo, etc.)
+
+
+## Launching the Application
+
+The application is launched from the console using the command:
 
 ```bash
 mvn spring-boot:run
