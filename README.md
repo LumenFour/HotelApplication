@@ -33,7 +33,7 @@ Retrieves the number of hotels grouped by each value of the specified parameter.
 The application is launched from the console using the command:
 
 
-###Technologies Used
+### Technologies Used
 -Maven
 -Java 17+
 -Spring Boot
@@ -41,7 +41,7 @@ The application is launched from the console using the command:
 -Liquibase
 -H2 (as a database)
 
-###Additional Features
+### Additional Features
 -Tests
 -Swagger Documentation
 -Use of design patterns
