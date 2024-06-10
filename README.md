@@ -32,11 +32,6 @@ Retrieves the number of hotels grouped by each value of the specified parameter.
 
 The application is launched from the console using the command:
 
-```bash
-mvn spring-boot:run
-
-
-Launch port: 8092
 
 ###Technologies Used
 -Maven
@@ -52,3 +47,10 @@ Launch port: 8092
 -Use of design patterns
 -Layer separation
 -Ability to “quickly” switch from H2 to another database (MySQL, PostgreSQL, Mongo, etc.)
+
+```bash
+mvn spring-boot:run
+
+Launch port: 8092
+
+
