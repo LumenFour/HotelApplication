@@ -34,19 +34,19 @@ The application is launched from the console using the command:
 
 
 ### Technologies Used
--Maven
--Java 17+
--Spring Boot
--Spring JPA
--Liquibase
--H2 (as a database)
+*Maven
+*Java 17+
+*Spring Boot
+*Spring JPA
+*Liquibase
+*H2 (as a database)
 
 ### Additional Features
--Tests
--Swagger Documentation
--Use of design patterns
--Layer separation
--Ability to “quickly” switch from H2 to another database (MySQL, PostgreSQL, Mongo, etc.)
+*Tests
+*Swagger Documentation
+*Use of design patterns
+*Layer separation
+*Ability to “quickly” switch from H2 to another database (MySQL, PostgreSQL, Mongo, etc.)
 
 ```bash
 mvn spring-boot:run
